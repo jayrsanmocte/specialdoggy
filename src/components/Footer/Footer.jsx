@@ -4,7 +4,7 @@ const Footer = () => {
     return (
 <>
         <div className='sige' id="footer">
-        <div> <img src='/Images/footer.png' alt="Description of the image" id='imagelogo'/>
+        <div> <img src='/Images/footertest.gif' alt="Description of the image" id='imagelogo'/>
         </div>
     
     <div className="bg-custom text-center text-lg-start text-black">

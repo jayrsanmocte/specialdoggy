@@ -8,40 +8,8 @@ function Home() {
       getInRef.current.scrollIntoView({ behavior: 'smooth' });
     };
 
-  useEffect(() => {
-    var main = new Splide('#main-slider', {
-      type: 'fade',
-      heightRatio: 0.5,
-      pagination: false,
-      arrows: false,
-      cover: true,
-    });
-
-    var thumbnails = new Splide('#thumbnail-slider', {
-      rewind: true,
-      fixedWidth: 104,
-      fixedHeight: 58,
-      isNavigation: true,
-      gap: 10,
-      focus: 'center',
-      pagination: false,
-      cover: true,
-      dragMinThreshold: {
-        mouse: 4,
-        touch: 10,
-      },
-      breakpoints: {
-        640: {
-          fixedWidth: 66,
-          fixedHeight: 38,
-        },
-      },
-    });
-
-    main.sync(thumbnails);
-    main.mount();
-    thumbnails.mount();
-  }, []);
+  
+  
 
   return (
     <>
@@ -72,7 +40,9 @@ function Home() {
           </div>
         </section>
       </div>
-
+      <div>
+        <img src="/Images/school-divider.png" alt="" id="imagelogo" />
+      </div>
       <div className="container">
         <section>
           <div className="Interesting py-3">
@@ -125,7 +95,7 @@ function Home() {
               </p>
             </div>
           </div>
-
+          
           <div className="row">
             <div className="col-4">
               <div className="target">
@@ -172,84 +142,10 @@ function Home() {
           </div>
         </section>
       </div>
-
-      <div>
-        <img src="/Images/school-divider.png" alt="" id="imagelogo" />
-      </div>
-
-      <div className="container">
-        <div className="splide my-5" id="main-slider">
-          <div className="splide__track">
-            <ul className="splide__list">
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg"
-                  className="img-fluid"
-                  alt="Slide 1"
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </li>
-
-              <li className="splide__slide">
-                <img
-                  src="https://cdn.pixabay.com/photo/2019/08/19/07/45/corgi-4415649_1280.jpg"
-                  className="img-fluid"
-                  alt="Slide 2"
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </li>
-
-              <li className="splide__slide">
-                <img
-                  src="https://tnt.abante.com.ph/wp-content/uploads/2021/07/AJ-Raval.jpg"
-                  className="img-fluid"
-                  alt="Slide 3"
-                />
-                <div className="carousel-caption d-none d-md-block">
-                  <h5>Second slide label</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="splide my-5" id="thumbnail-slider">
-          <div className="splide__track">
-            <ul className="splide__list">
-              <li className="splide__slide hvr-grow-shadow">
-                <img
-                  src="https://cdn.pixabay.com/photo/2017/07/31/21/15/dog-2561134_1280.jpg"
-                  className="img-fluid"
-                  alt="Thumbnail 1"
-                />
-              </li>
-
-              <li className="splide__slide hvr-grow-shadow">
-                <img
-                  src="https://media.tenor.com/dqH6ZBgOvMUAAAAj/dog-dance.gif"
-                  className="img-fluid"
-                  alt="Thumbnail 2"
-                />
-              </li>
-
-              <li className="splide__slide hvr-grow-shadow">
-                <img
-                  src="https://media.tenor.com/ijffyjt8WKYAAAAj/dog-twerk.gif"
-                  className="img-fluid"
-                  alt="Thumbnail 3"
-                />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      
+    
+      
+      
     </>
   );
 }
