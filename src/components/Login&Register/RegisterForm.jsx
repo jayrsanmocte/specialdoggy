@@ -10,6 +10,7 @@ const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const googleProvider = new GoogleAuthProvider();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -23,18 +24,29 @@ const RegisterForm = () => {
     setPassword(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Add your registration logic here
-  //   console.log('Name:', name);
-  //   console.log('Email:', email);
-  //   console.log('Password:', password);
-  //   // Reset the form
-  //   setName('');
-  //   setEmail('');
-  //   setPassword('');
-  
-  // };
+  const signInWithGoogle = async () => {
+    try {
+    await signInWithPopup(firebase.auth(), googleProvider);
+    const user = firebase.auth().currentUser;
+    const userId = user.uid;
+    const email = user.email; // Retrieve the user's email
+    const username = user.displayName; // Retrieve the user's email
+    const userRef = firebase.database().ref(`users/${userId}`);
+    userRef.set({ 
+        username,
+        email // Save the user's email in the database
+    });
+
+    } catch (error) {
+    // Handle the error
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error,
+            footer: '<a href="">Why do I have this issue?</a>'
+        })
+    }
+};
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,6 +98,7 @@ const RegisterForm = () => {
         Register
       </Button>
     </Form>
+    <button className='mt-4' onClick={signInWithGoogle}>Signup with Google</button>
 </div>
     
   );

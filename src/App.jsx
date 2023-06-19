@@ -26,7 +26,7 @@ firebase.initializeApp(firebaseConfig);
   
   const App = () => {
     const [selectedDogName, setSelectedDogName] = useState('');
-
+     
     return (
       <>
         <Routes basename="/">

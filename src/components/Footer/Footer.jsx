@@ -1,4 +1,5 @@
 import React from 'react';
+import DoggyMap from '../DoggyMAp/DoggyMap';
 
 const Footer = () => {
     return (
@@ -6,7 +7,7 @@ const Footer = () => {
         <div className='sige' id="footer">
         <div> <img src='/Images/footertest.gif' alt="Description of the image" id='imagelogo'/>
         </div>
-    
+     
     <div className="bg-custom text-center text-lg-start text-black">
         <div className="container">
                 <div className="row">
@@ -45,11 +46,8 @@ const Footer = () => {
                     <li className="mb-2">
                     <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Dogs for adoption</a>
                     </li>
-                </ul>
-                </div>
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0 mt-5">
-                <h5 className="text-uppercase mb-4 mt-5"></h5>
-                <ul className="list-unstyled">
+                    <h5 className="text-uppercase mb-2"></h5>
+               
                     <li className="mb-2">
                     <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>General information</a>
                     </li>
@@ -59,9 +57,11 @@ const Footer = () => {
                     <li className="mb-2">
                     <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Contact</a>
                     </li>
+                   
                 </ul>
                 </div>
                 <div className="col-lg-3 col-md-6 mb-4 mb-md-0 mt-5">
+                
                 <h5 className="text-uppercase mb-4">Contact</h5>
                 <ul className="list-unstyled">
                     <li>
@@ -75,15 +75,25 @@ const Footer = () => {
                     </li>
                 </ul>
                 </div>
+                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                
+                <div className='mapdog'>
+                <DoggyMap />
+                </div>
+                
+                </div>
             </div>
             </div>
             <div className="text-center p-3">
             © 2023
             <a className="text-black" href="https://mdbootstrap.com/"> SpecialDog.com</a>
+            
             </div>
+            
         </div>
+        
         </div>
-
+        
         </>
     );
 };

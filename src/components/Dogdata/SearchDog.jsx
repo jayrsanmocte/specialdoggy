@@ -100,36 +100,44 @@ function SearchDog() {
 
   return (
     <div className="container">
-      <div className="container d-flex mt-5 mb-5">
-        <input
-          className="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-
-        <button className="btn btn-warning" type="submit">
-          Search
-        </button>
-      </div>
-
-      <div className="grid col-12">
-        <div className="row text-center">
-          {dogBreeds.map((dogBreed) => (
-            <div
-              key={dogBreed[0]}
-              className={`grid-item btn-custom text-center ${dogBreed[0]}`}
-              onClick={() => handleButtonClick(dogBreed[0], dogBreed[1])}
-            >
-              <div className="paws1 fas fa-paw hvr-icon-buzz-out" />
-              {dogBreed[0]}
-            </div>
-          ))}
+    <div className="container-fluid mt-5 mb-5">
+      <div className="row">
+        <div className="col-12 col-md-8">
+          <input
+            className="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </div>
+        <div className="col-12 col-md-4 mt-2 mt-md-0">
+          <button className="btn btn-warning w-100" type="submit">
+            Search
+          </button>
         </div>
       </div>
     </div>
+  
+    <div className="grid">
+      <div className="row text-center">
+        {dogBreeds.map((dogBreed) => (
+          <div
+            key={dogBreed[0]}
+            className="grid-item btn-custom col-6 col-sm-4 col-md-3"
+            onClick={() => handleButtonClick(dogBreed[0], dogBreed[1])}
+          >
+            <div className={`paws1 fas fa-paw hvr-icon-buzz-out ${window.innerWidth <= 576 ? 'small-icon' : ''}`} />
+            {dogBreed[0]}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  
+
+
   );
 }
 

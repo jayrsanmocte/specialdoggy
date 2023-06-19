@@ -17,15 +17,22 @@ const LoginForm = ({ onRegisterClick }) => {
     setPassword(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Add your login logic here
-  //   console.log('Email:', email);
-  //   console.log('Password:', password);
-  //   // Reset the form
-  //   setEmail('');
-  //   setPassword('');
-  // };
+  const handleLoginWithGoogle = async () => {
+    try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    await firebase.auth().signInWithPopup(provider);
+
+
+    } catch (error) {
+    console.log(error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: error,
+            footer: '<a href="">Why do I have this issue?</a>'
+        })
+    }
+};
   
   
   const handleSubmit = async (e) => {
@@ -83,6 +90,7 @@ const LoginForm = ({ onRegisterClick }) => {
 </div>
         
       </Form>
+      <button className='btn btn-warning' onClick={handleLoginWithGoogle}>Log In with Google</button>
     </div>
   );
 };
