@@ -49,7 +49,7 @@ const RegisterForm = () => {
         showConfirmButton: false,
         timer: 2000,
       });
-      
+        
       // Navigate to home page
       navigate('/home'); // Use navigate function to navigate
     } catch (error) {
