@@ -49,7 +49,7 @@ function Navbar() {
       imageWidth: 200,
       imageHeight: 200,
       imageAlt: 'Custom Image',
-      title: 'Successfully Log out !',
+      title: 'Successfully Log out',
       customClass: {
         title: 'text-red',
       }
@@ -245,7 +245,13 @@ function Navbar() {
                   aria-expanded="false"
                   className="nav-link me-5"
                 >
-                  {userData && userData.name}
+                              <span style={{
+                background: `linear-gradient(to right, black 40%, rgba(252,176,66,255) 60%)`,
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                {userData && userData.name}
+              </span>
                   <img
                     src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                     className="rounded-circle ms-3"

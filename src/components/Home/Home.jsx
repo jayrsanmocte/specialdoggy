@@ -3,7 +3,7 @@ import Testimonials from '../Testimonials/Testimonials';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
-
+  
   const navigate = useNavigate();
     const getInRef = useRef(null);
 
@@ -17,7 +17,30 @@ function Home() {
        getInRef.current.scrollIntoView({ behavior: 'smooth' });
      };
   
-
+     const combinedData = [
+      { text: "Biggest Dogs", description: "The English Mastiff, originating from England, is recognized as one of the largest dog breeds globally. It can weigh up to 200 pounds and stand at an impressive height.", icon: "big" },
+      { text: "Fastest Dogs", description: "The Greyhound, with its sleek physique, is widely recognized as one of the fastest dog breeds globally. It can reach speeds of up to 45 miles per hour.", icon: "faster" },
+      { text: "Sweetest Dogs", description: "Bichon Frise: Bichon Frises are charming and affectionate companions. They love being the center of attention and are known for their cheerful and loving nature." , icon: "many" },
+      { text: "Moral Dogs", description: "The Golden Retriever, known for its friendly and gentle nature, is often considered one of the most morally exceptional breeds, displaying loyalty and compassion.", icon: "moral" },
+      { text: "Smallest Dogs", description: "The Chihuahua, native to Mexico, is one of the smallest dog breeds worldwide, often weighing just a few pounds and standing a mere few inches tall.", icon: "small" },
+      { text: "Strongest Dogs", description: "The American Pit Bull Terrier, known for its strength and determination, has impressive muscular power and endurance.", icon: "strong" },
+      { text: "Smartest Dogs", description: "The Border Collie is widely regarded as one of the smartest dog breeds. They excel in various canine activities and are highly trainable.",icon: "moral" },
+      { text: "Oldest Dogs", description: "The Basenji, originating from Central Africa, is known as one of the oldest dog breeds. They have a rich history and were prized for their hunting abilities.", icon: "many" },
+      { text: "Most Popular Dogs", description: "The Labrador Retriever consistently ranks as one of the most popular dog breeds worldwide. They are known for their friendly and outgoing nature, making them excellent family pets.", icon: "small" },
+      { text: "Energetic Dogs", description: "The Australian Shepherd is a highly energetic and agile dog breed. They thrive in active households and require plenty of exercise and mental stimulation.",icon: "big" },
+      { text: "Gentle Dogs", description: "The Cavalier King Charles Spaniel is known for its gentle and affectionate nature. They make excellent companions and are often described as 'love sponges' due to their affectionate tendencies.",icon: "faster" },
+      { text: "Playful Dogs", description: "The Boxer is a playful and energetic dog breed. They are known for their clown-like behavior and love to engage in interactive play with their owners." ,icon: "small" },
+      { text: "Protective Dogs", description: "The German Shepherd is widely recognized as a protective and loyal breed. They are often used as working dogs in various roles, including law enforcement and search and rescue.",icon: "big" },
+      { text: "Loyal Dogs", description: "The Akita, originating from Japan, is known for its loyalty and devotion to its family. They are protective and make excellent guard dogs.", icon: "moral" },
+      { text: "Adorable Dogs", description: "The Pomeranian, with its fluffy coat and fox-like appearance, is often regarded as one of the most adorable dog breeds. They are small in size but big in personality." ,icon: "small" },
+      { text: "Unique Dogs", description: "The Xoloitzcuintli, also known as the Mexican Hairless Dog, is a unique breed known for its hairless appearance. They are loyal and make great companions." ,icon: "strong" },
+      { text: "Independent Dogs", description: "The Shiba Inu, native to Japan, is known for its independent and somewhat stubborn nature. They require consistent training and socialization from an early age." ,icon: "many" },
+      { text: "Friendly Dogs", description: "The Beagle is a friendly and sociable breed, known for its cheerful and outgoing personality. They get along well with children and other pets.", icon: "small" },
+      { text: "Hypoallergenic Dogs", description: "The Poodle is a popular hypoallergenic dog breed, prized for its curly, low-shedding coat. They are often recommended for individuals with allergies." ,icon: "many" },
+      { text: "Quiet Dogs", description: "The Basenji, mentioned earlier as one of the oldest dog breeds, is also known for its unique vocalization. They produce yodel-like sounds instead of barking.", icon: "strong" },
+    ];
+  
+    const randomData = combinedData.sort(() => 0.5 - Math.random()).slice(0, 6);
   return (
     <>
     
@@ -52,105 +75,29 @@ function Home() {
 </div>
 
 <div className="container">
-  <section>
-    <div className="Interesting py-3">
-      <p>
-        Fascinating Facts <span style={{ color: 'rgba(252,176,66,255)' }}>About Dogs</span>
-      </p>
+      <section>
+        <div className="Interesting py-3">
+          <p>
+            Fascinating Facts <span style={{ color: 'rgba(252,176,66,255)' }}>About Dogs</span>
+          </p>
+        </div>
+        <div className="row">
+          {randomData.map((data, index) => (
+            <div className="col-lg-4 col-md-6 col-sm-12" key={index}>
+              <div className="target">
+                <div className="interestingIconsBox pt-5">
+                  <img src={`Images/DogIcons/${data.icon}.png`} className="fas hvr-icon-buzz-out interestingIcons" alt={data.text} />
+                </div>
+              </div>
+              <span className="trivia py-4">
+                <label style={{ color: 'rgba(252,176,66,255)' }}>{data.text}</label>
+              </span>
+              <p className="text-center">{data.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
-    <div className="row">
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="target">
-          <div className="interestingIconsBox pt-5">
-            <img src="Images/DogIcons/big.png" className="fas hvr-icon-buzz-out interestingIcons" alt="Big" />
-          </div>
-        </div>
-        <span className="trivia py-4">
-          <label style={{ color: 'rgba(252,176,66,255)' }}>Biggest&nbsp;</label> Dogs
-        </span>
-        <p className="text-center">
-          The English Mastiff, originating from England, is recognized as one of the largest dog breeds globally. It can
-          weigh up to 200 pounds and stand at an impressive height.
-        </p>
-      </div>
-
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="target">
-          <div className="interestingIconsBox pt-5">
-            <img src="Images/DogIcons/faster.png" className="fas hvr-icon-buzz-out interestingIcons" alt="Fast" />
-          </div>
-        </div>
-        <span className="trivia py-4">
-          <span style={{ color: 'rgba(252,176,66,255)' }}>Fastest&nbsp;</span>Dogs
-        </span>
-        <p className="text-center">
-          The Greyhound, with its sleek physique, is widely recognized as one of the fastest dog breeds globally. It can
-          reach speeds of up to 45 miles per hour.
-        </p>
-      </div>
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="target">
-          <div className="interestingIconsBox pt-5">
-            <img src="Images/DogIcons/many.png" className="fas hvr-icon-buzz-out interestingIcons" alt="Sweet" />
-          </div>
-        </div>
-        <span className="trivia py-4">
-          <span style={{ color: 'rgba(252,176,66,255)' }}>Sweetest&nbsp;</span>Dogs
-        </span>
-        <p className="text-center">
-          Bichon Frise: Bichon Frises are charming and affectionate companions. They love being the center of attention
-          and are known for their cheerful and loving nature.
-        </p>
-      </div>
-    </div>
-
-    <div className="row">
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="target">
-          <div className="interestingIconsBox pt-5">
-            <img src="Images/DogIcons/moral.png" className="fas hvr-icon-buzz-out interestingIcons" alt="Moral" />
-          </div>
-        </div>
-        <span className="trivia py-4">
-          <span style={{ color: 'rgba(252,176,66,255)' }}>Moral&nbsp;</span>Dogs
-        </span>
-        <p className="text-center">
-          The Golden Retriever, known for its friendly and gentle nature, is often considered one of the most morally
-          exceptional breeds, displaying loyalty and compassion.
-        </p>
-      </div>
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="target">
-          <div className="interestingIconsBox pt-5">
-            <img src="Images/DogIcons/small.png" className="fas hvr-icon-buzz-out interestingIcons" alt="Small" />
-          </div>
-        </div>
-        <span className="trivia py-4">
-          <span style={{ color: 'rgba(252,176,66,255)' }}>Smallest&nbsp;</span>Dogs
-        </span>
-        <p className="text-center">
-          The Chihuahua, native to Mexico, is one of the smallest dog breeds worldwide, often weighing just a few pounds
-          and standing a mere few inches tall.
-        </p>
-      </div>
-      <div className="col-lg-4 col-md-6 col-sm-12">
-        <div className="target">
-          <div className="interestingIconsBox pt-5">
-            <img src="Images/DogIcons/strong.png" className="fas hvr-icon-buzz-out interestingIcons" alt="Strong" />
-          </div>
-        </div>
-        <span className="trivia py-4">
-          <span style={{ color: 'rgba(252,176,66,255)' }}>Strongest&nbsp;</span>Dogs
-        </span>
-        <p className="text-center">
-          The American Pit Bull Terrier, known for its strength and determination, has impressive muscular power and
-          endurance.
-        </p>
-      </div>
-    </div>
-  </section>
-</div>
-
 
       <Testimonials />
     </>
