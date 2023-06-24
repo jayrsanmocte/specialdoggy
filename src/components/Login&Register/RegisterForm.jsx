@@ -39,24 +39,39 @@ const RegisterForm = () => {
 
       // Display sweet alert
       await Swal.fire({
-        icon: 'success',
+        icon: '',
+        imageUrl: '/Images/happy.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom Image',
         title: 'Registration Complete',
         text: 'You have successfully registered.',
         showConfirmButton: false,
         timer: 2000,
       });
-
+      
       // Navigate to home page
       navigate('/home'); // Use navigate function to navigate
     } catch (error) {
       Swal.fire({
-        icon: 'error',
+        icon: '',
         title: 'Oops...',
+        customClass: {
+          title: 'text-yellow',
+        },
+        imageUrl: '/Images/happy.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom Image',
         text: error.message,
         footer: '<a href="">Why do I have this issue?</a>'
       });
     }
   };
+  
+
+
+
 
   return (
     <div className="container mt-5 p-5" style={{ width: '40%' }}>

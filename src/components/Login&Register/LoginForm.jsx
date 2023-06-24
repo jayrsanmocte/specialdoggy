@@ -18,13 +18,17 @@ const LoginForm = ({ onRegisterClick }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       Swal.fire({
-        icon: 'success',
+        icon: '',
+        imageUrl: '/Images/happy.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom Image',
         title: 'Success!',
         text: 'You have successfully logged in.',
       }).then(() => {
@@ -32,10 +36,19 @@ const LoginForm = ({ onRegisterClick }) => {
       });
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: error.message,
-        footer: '<a href="">Why do I have this issue?</a>',
+        icon: '',
+        title: 'Invalid Username/Password',
+        customClass: {
+          title: 'text-yellow',
+        },
+        imageUrl: '/Images/sad.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom Image',
+        footer: `<div class="text-gray">
+                  <div>Don't have an account yet?</div>
+                  <div style="padding-left: 30px;"><a href="/register"><h5>Register Here</h5></a></div>
+                </div>`,
       });
     }
   };

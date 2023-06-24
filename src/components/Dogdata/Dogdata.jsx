@@ -152,8 +152,12 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/database';
 
 function Dogdata() {
   const [breedImages, setBreedImages] = useState([]);
@@ -161,21 +165,24 @@ function Dogdata() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [spanName, setSpanName] = useState([]);
-  
+
+  const [user, loading, error] = useAuthState(firebase.auth());
+  const navigate = useNavigate();
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const breedname = urlParams.get('breedname');
     const breedid = urlParams.get('breedid');
-    
+
     dogFetchData(breedname, breedid);
   }, []);
-  
+
   function dogFetchData(breedname, breedid) {
     axios
       .get(`https://dog.ceo/api/breed/${breedname}/images`)
       .then((response) => setBreedImages(response.data.message))
       .catch((error) => console.log(error));
-    
+
     axios
       .get(`https://api.thedogapi.com/v1/breeds/${breedid}`)
       .then((response) => {
@@ -196,7 +203,7 @@ function Dogdata() {
       })
       .catch((error) => console.log(error));
   }
-  
+
   function divideString(str) {
     const middleIndex = Math.floor(str.length / 2);
     const firstHalf = str.slice(0, middleIndex);
@@ -205,6 +212,19 @@ function Dogdata() {
     return [firstHalf, secondHalf];
   }
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error occurred: {error.message}</div>;
+  }
+
+  if (!user) {
+    // Redirect to login page or display a message
+    navigate('/login');
+    return null;
+  }
   return (
     <div className="background-container">
       {isLoading ? (

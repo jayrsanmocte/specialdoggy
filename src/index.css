@@ -663,4 +663,11 @@ align-items: center;
   }
 }
 
-  
+
+/* swalfire effect */
+.text-yellow {
+  color: rgb(215, 7, 7);
+}
+.text-gray {
+  color: gray;
+}

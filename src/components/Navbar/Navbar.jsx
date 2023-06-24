@@ -37,7 +37,11 @@ function Navbar() {
     try {
       await firebase.auth().signOut();
       Swal.fire({
-        icon: 'success',
+        icon: '',
+        imageUrl: '/Images/sad2.png',
+        imageWidth: 200,
+        imageHeight: 200,
+        imageAlt: 'Custom Image',
         text: 'Successfully Logout.',
       });
     } catch (error) {
