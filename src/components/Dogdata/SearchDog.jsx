@@ -151,11 +151,11 @@ import { useNavigate } from 'react-router-dom';
 function SearchDog() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
-
+  
   const handleButtonClick = (breedname, breedid) => {
     navigate(`/dogdata?breedname=${breedname}&breedid=${breedid}`);
   };
-
+  
   useEffect(() => {
     const gridItems = document.querySelectorAll('.grid-item');
     

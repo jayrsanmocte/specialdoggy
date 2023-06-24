@@ -152,22 +152,19 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/database';
 
 function Dogdata() {
+  
+ 
+  
+  const [selectedDogName, setSelectedDogName] = useState('');
   const [breedImages, setBreedImages] = useState([]);
   const [breedData, setBreedData] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [spanName, setSpanName] = useState([]);
-
-  const [user, loading, error] = useAuthState(firebase.auth());
-  const navigate = useNavigate();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -211,20 +208,41 @@ function Dogdata() {
 
     return [firstHalf, secondHalf];
   }
+  
+  const dognames = [
+    ['Chuknu', 'If you wish to rehome me, click the rehome button. Dog Owner"Alberto chacknu"'],
+    ['Veewise', 'If you wish to rehome me, click the rehome button. Dog Owner"Sandy balbueno"'],
+    ['Kutchupoy', 'If you wish to rehome me, click the rehome button. Dog Owner"Kurt smith"'],
+    ['Chucu', 'If you wish to rehome me, click the rehome button. Dog Owner"Angel locsan"'],
+    ['Nitlo', 'If you wish to rehome me, click the rehome button. Dog Owner"Marian rivira"'],
+    ['Kurdapyo', 'If you wish to rehome me, click the rehome button. Dog Owner"Jimmy sanson"'],
+    ['Piggy', 'If you wish to rehome me, click the rehome button. Dog Owner"Vic sokko"'],
+    ['Samsonike', 'If you wish to rehome me, click the rehome button. Dog Owner"Ryza mae dikson"'],
+    ['Hamburgir', 'If you wish to rehome me, click the rehome button. Dog Owner"Angels burgar"'],
+    ['Uvuvuevue', 'If you wish to rehome me, click the rehome button. Dog Owner"Baby ruth santos"'],
+    ['Unyetennueve', 'If you wish to rehome me, click the rehome button. Dog Owner"Queen rose"'],
+    ['Salamangker', 'If you wish to rehome me, click the rehome button. Dog Owner"Wishly man"'],
+    ['Spasol', 'If you wish to rehome me, click the rehome button. Dog Owner"Betty Nose"'],
+    ['Chukiko', 'If you wish to rehome me, click the rehome button. Dog Owner"Peter parking"'],
+    ['Kiriki', 'If you wish to rehome me, click the rehome button. Dog Owner"Kalvin Clin"'],
+    ['Mansura', 'If you wish to rehome me, click the rehome button. Dog Owner"Rosana rose"'],
+  ];
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
-  if (error) {
-    return <div>Error occurred: {error.message}</div>;
-  }
 
-  if (!user) {
-    // Redirect to login page or display a message
-    navigate('/login');
-    return null;
+  const randomIndexes = [];
+  while (randomIndexes.length <5) {
+    const randomIndex = Math.floor(Math.random() * dognames.length);
+    if (!randomIndexes.includes(randomIndex)) {
+      randomIndexes.push(randomIndex);
+    }
   }
+  
+  const randomBreeds = randomIndexes.map(index => ({
+    name: dognames[index][0],
+    description: dognames[index][1]
+  }));
+  
   return (
     <div className="background-container">
       {isLoading ? (
@@ -311,12 +329,51 @@ function Dogdata() {
                     </div>
                   </div>
                 </Link>
+               
               </div>
             </div>
           </div>
+          
         </div>
+        
       )}
+ <div className="container">
+  <div className="row justify-content-center">
+    <div className="col-12 text-center">
+      <h2 className="touchh2 my-5">
+        Dog available for <span style={{ color: 'rgba(252,176,66,255)' }}>adoption with rehoming fees</span>
+      </h2>
     </div>
+  </div>
+  {randomBreeds.slice(0, 6).map((breed, index) => (
+  breedImages.length > index + 13 && (
+    <div className="row justify-content-center" key={index}>
+      <div className="col-4 mb-2 text-center">
+        <img
+          src={breedImages[index + 13]}
+          alt={breed.name}
+          style={{ width: '100%', height: '50%', objectFit: 'cover' }}
+        />
+        <h3>{breed.name}</h3>
+        <p>{breed.description}</p>
+        <Link
+          to={`/appinfo/${breed.name}`}
+          className="btn btn-warning"
+          onClick={() => setSelectedDogName(breed.name)}
+        >
+          Rehome Me
+        </Link>
+      </div>
+    </div>
+  )
+))}
+
+
+</div>
+                   
+    
+    </div>
+    
   );
 }
 

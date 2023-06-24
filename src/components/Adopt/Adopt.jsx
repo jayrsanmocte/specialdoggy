@@ -4,7 +4,7 @@
 
 
     const Adopt = () => {
-
+      
       const [selectedDogName, setSelectedDogName] = useState('');
 
       let dognames = [

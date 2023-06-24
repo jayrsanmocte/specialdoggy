@@ -25,11 +25,14 @@ const LoginForm = ({ onRegisterClick }) => {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       Swal.fire({
         icon: '',
-        imageUrl: '/Images/happy.png',
+        imageUrl: 'https://scontent.fmnl17-1.fna.fbcdn.net/v/t1.6435-9/166038441_1118796105293262_4776616969989009322_n.jpg?_nc_cat=101&cb=99be929b-3346023f&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeEzWXWylY0KcehGnZSY5NxKLKYQ6zhP3u0sphDrOE_e7VGECBStajQ4EEDsk5fQpNxH0rrtkvj43fQKfdI5gV4h&_nc_ohc=k9JUSEbZzFUAX_ZiUhf&_nc_ht=scontent.fmnl17-1.fna&oh=00_AfC8Nhaso9zpumj9bD79s-Hbiq4aN-O5tJcaf_Zw3qUqfw&oe=64BE558C',
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Custom Image',
         title: 'Success!',
+        customClass: {
+          title: 'text-green',
+        },
         text: 'You have successfully logged in.',
       }).then(() => {
         navigate('/home'); // Replace '/home' with the actual path to your home page

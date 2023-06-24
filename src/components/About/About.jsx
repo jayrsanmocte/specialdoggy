@@ -17,7 +17,7 @@ getInRef.current.scrollIntoView({ behavior: 'smooth' });
       name: 'Mc. Dharnel Peralta Pagaragan',
       position: 'Dog Adoption Specialist',
       bio:
-        'Mc is a DOG with several years of experience in animal welfare. He is passionate about finding the perfect homes for our furry friends and providing support to new dog owners.',
+        'Mc is a DOG lover with several years of experience in animal welfare. He is passionate about finding the perfect homes for our furry friends and providing support to new dog owners.',
       photo: 'Videos/mc.gif',
     },
     {

@@ -1,16 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import Testimonials from '../Testimonials/Testimonials';
-
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+
+  const navigate = useNavigate();
     const getInRef = useRef(null);
 
     const scrollToGetIn = () => {
-      window.location.href = '/about#getin';
+     navigate('/about#getin')
       getInRef.current.scrollIntoView({ behavior: 'smooth' });
     };
     
-  
+    const scrollToGetabout = () => {
+      navigate('/about')
+       getInRef.current.scrollIntoView({ behavior: 'smooth' });
+     };
   
 
   return (
@@ -30,7 +35,7 @@ function Home() {
           <button className="btn btn-warning" onClick={scrollToGetIn}>
             Get In Touch
           </button>
-          <button id="expandButton" className="btn btn-outline-warning ms-4" onClick={scrollToGetIn}>
+          <button id="expandButton" className="btn btn-outline-warning ms-4" onClick={scrollToGetabout}>
             Read More
           </button>
         </div>

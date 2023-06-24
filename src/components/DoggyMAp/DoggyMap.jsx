@@ -240,8 +240,11 @@ return (
       placeholder='Type Your Location'
       value={startRoute}
       onChange={(e) => setStartRoute(e.target.value)}
+  
     />
+    
   </div>
+  <br></br>
 </div>
 <div id="map" style={{ height: '500px', width: '120%' }}></div>
 <div className='d-flex mb-3 justify-content-center'>

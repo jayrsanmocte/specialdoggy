@@ -55,16 +55,18 @@ const RegisterForm = () => {
     } catch (error) {
       Swal.fire({
         icon: '',
-        title: 'Oops...',
+        title: 'Invalid Email / Password',
         customClass: {
-          title: 'text-yellow',
+        title: 'text-yellow',
         },
-        imageUrl: '/Images/happy.png',
+        imageUrl: '/Images/sad.png',
         imageWidth: 200,
         imageHeight: 200,
         imageAlt: 'Custom Image',
-        text: error.message,
-        footer: '<a href="">Why do I have this issue?</a>'
+        // text: error.message,
+        footer: `<div class="text-gray">
+        <div>Email taken / Password must have at least six characters</div>
+        `,
       });
     }
   };
@@ -78,17 +80,17 @@ const RegisterForm = () => {
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} />
+          <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} required />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
           <Form.Label className='mt-4'>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} required/>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label className='mt-4'>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+          <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required/>
         </Form.Group>
 
         <Button className='mt-4' variant="warning" type="submit">

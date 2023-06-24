@@ -671,3 +671,11 @@ align-items: center;
 .text-gray {
   color: gray;
 }
+
+.text-green {
+  color: green;
+}
+
+.text-red {
+  color: red;
+}

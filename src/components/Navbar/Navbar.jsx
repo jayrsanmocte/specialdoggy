@@ -11,7 +11,7 @@ function Navbar() {
   const [userData, setUserData] = useState(null);
   const [user] = useAuthState(firebase.auth());
   
-
+  
   useEffect(() => {
     if (user) {
       const userRef = firebase.database().ref(`users/${user.uid}`);
@@ -24,7 +24,14 @@ function Navbar() {
       });
     }
   }, [user]);
+  
+  const handleShelterMapClick = () => {
+    
+    navigate('/shelterMap');
+    window.location.reload();
+  };
 
+  
   const handleNavItemHover = () => {
     setLogoSrc('/Images/logoDog1.png');
   };
@@ -37,12 +44,15 @@ function Navbar() {
     try {
       await firebase.auth().signOut();
       Swal.fire({
-        icon: '',
-        imageUrl: '/Images/sad2.png',
-        imageWidth: 200,
-        imageHeight: 200,
-        imageAlt: 'Custom Image',
-        text: 'Successfully Logout.',
+      icon: '',
+      imageUrl: '/Images/sad2.png',
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: 'Custom Image',
+      title: 'Successfully Log out !',
+      customClass: {
+        title: 'text-red',
+      }
       });
     } catch (error) {
       Swal.fire({
@@ -185,7 +195,7 @@ function Navbar() {
                   to="/shelterMap"
                   onMouseEnter={handleNavItemHover}
                   onMouseLeave={handleNavItemLeave}
-                  // onClick={handleHomeClick}
+                  onClick={handleShelterMapClick}
                 >
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Shelter Map
                 </Link>
