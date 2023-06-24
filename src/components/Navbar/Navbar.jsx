@@ -39,7 +39,6 @@ function Navbar() {
       Swal.fire({
         icon: 'success',
         text: 'Successfully Logout.',
-        footer: '<a href="">Why do I have this issue?</a>',
       });
     } catch (error) {
       Swal.fire({
@@ -53,51 +52,74 @@ function Navbar() {
   
   const handleHomeClick = (e) => {
     const clickedLink = e.target.getAttribute('href');
-    
+  
     if (!user && clickedLink !== '/searchDog' && clickedLink !== '/applicants') {
       e.preventDefault();
       navigate('/login');
-    }
-    
-    else if (!user && clickedLink !== '/about') {
-      
+    } else if (!user && clickedLink !== '/about') {
       navigate('/about');
     }
+  };
   
+  const handleRedirect = () => {
+    const path = window.location.pathname;
+    const isRestrictedPath = path === '/searchDog' || path === '/applicants';
+  
+    if (!user && isRestrictedPath) {
+      navigate('/login');
+    }
+  };
+  
+  const handleInitialPageLoad = () => {
+    const path = window.location.pathname;
+    const isRestrictedPath = path === '/applicants' || path === '/searchdog';
+  
+    if (!user && isRestrictedPath) {
+      navigate('/login');
+    }
   };
   
   useEffect(() => {
-    const handleRedirect = () => {
-      const path = window.location.pathname;
-      const isRestrictedPath =  path === '/searchDog' || path === '/applicants';
-      
-      if (!user && isRestrictedPath) {
-        navigate('/login');
-      }
-    };
-
     handleRedirect();
     // Listen to location changes
     window.addEventListener('popstate', handleRedirect);
-
+  
     return () => {
       // Clean up event listener
       window.removeEventListener('popstate', handleRedirect);
     };
   }, [user, navigate]);
-
+  
   useEffect(() => {
-    const handleInitialPageLoad = () => {
-      const path = window.location.pathname;
-      const isRestrictedPath = path === '/applicants' || path === '/searchdog';
-
-      if (!user && isRestrictedPath) {
-        navigate('/login');
-      }
-    };
-
     handleInitialPageLoad();
   }, [user, navigate]);
+  
+  // Add event listener to handle page refresh
+  useEffect(() => {
+    const handlePageRefresh = (event) => {
+      // Check if the user is logged in, and if so, save the current path in local storage
+      if (user) {
+        localStorage.setItem('currentPath', window.location.pathname);
+      }
+    };
+  
+    window.addEventListener('beforeunload', handlePageRefresh);
+  
+    return () => {
+      // Clean up event listener
+      window.removeEventListener('beforeunload', handlePageRefresh);
+    };
+  }, [user]);
+  
+  useEffect(() => {
+    const storedPath = localStorage.getItem('currentPath');
+  
+    if (storedPath && !user) {
+      navigate(storedPath);
+      localStorage.removeItem('currentPath');
+    }
+  }, [user, navigate]);
+  
   
   return (
     <>
@@ -152,6 +174,20 @@ function Navbar() {
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>About
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  className="nav-link me-5"
+                  to="/shelterMap"
+                  onMouseEnter={handleNavItemHover}
+                  onMouseLeave={handleNavItemLeave}
+                  // onClick={handleHomeClick}
+                >
+                  <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Shelter Map
+                </Link>
+              </li>
+
+
               <li className="nav-item">
                 <Link
                   className="nav-link me-5"
@@ -163,6 +199,7 @@ function Navbar() {
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Adopt a Dog
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   className="nav-link me-5"
@@ -174,13 +211,14 @@ function Navbar() {
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Search a Dog
                 </Link>
               </li>
+
               <li className="nav-item">
                 <a
                   className="nav-link me-5"
                   href="#footer"
                   onMouseEnter={handleNavItemHover}
                   onMouseLeave={handleNavItemLeave}
-                  onClick={handleHomeClick}
+                  // onClick={handleHomeClick}
                 >
                   <i className="fas fa-paw me-3 hvr-icon-buzz-out"></i>Contact
                 </a>

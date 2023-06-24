@@ -4,14 +4,15 @@ import DoggyMap from '../DoggyMAp/DoggyMap';
 const Footer = () => {
     return (
 <>
+{/* <img className='house' src="/Images/giphy.gif" alt=""/> */}
         <div className='sige' id="footer">
-        <div> <img src='/Images/footertest.gif' alt="Description of the image" id='imagelogo'/>
+        <div> <img src='/Images/footertest.gif' alt="Description of the image" id='imagelogo'/> 
         </div>
      
-    <div className="bg-custom text-center text-lg-start text-black">
+    <div className="bg-custom text-lg-start text-black">
         <div className="container">
                 <div className="row">
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <div className="col-lg-3 col-md-6  mb-md-0 mt-5">
                 <div className="rounded-circle bg-custom1 shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto" style={{ width: '150px', height: '150px' }}>
                     <img src="https://media.tenor.com/ijffyjt8WKYAAAAj/dog-twerk.gif" height="100" alt="" loading="lazy" />
                 </div>
@@ -34,20 +35,26 @@ const Footer = () => {
                     </li>
                 </ul>
                 </div>
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0 mt-5">
+                <div className="col-lg-3 col-md-6  mb-md-0 mt-4 p-5">
                 <h5 className="text-uppercase mb-4">Animals</h5>
+                <div className="row">
+                    <ul className="list-unstyled">
+                        <li className="mb-2">
+                        <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Available Dogs</a>
+                        </li>
+                        <li className="mb-2">
+                        <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>How to adopt?</a>
+                        </li>
+                        <li className="mb-2">
+                        <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Dogs for adoption</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+
+                <div className="col-lg-3 col-md-6  mb-md-0 mt-5 p-5">
+                <h5 className="text-uppercase mb-4"></h5>
                 <ul className="list-unstyled">
-                    <li className="mb-2">
-                    <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Available Dogs</a>
-                    </li>
-                    <li className="mb-2">
-                    <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>How to adopt?</a>
-                    </li>
-                    <li className="mb-2">
-                    <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Dogs for adoption</a>
-                    </li>
-                    <h5 className="text-uppercase mb-2"></h5>
-               
                     <li className="mb-2">
                     <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>General information</a>
                     </li>
@@ -57,10 +64,10 @@ const Footer = () => {
                     <li className="mb-2">
                     <a href="#!" className="text-black"><i className="fas fa-paw pe-3"></i>Contact</a>
                     </li>
-                   
                 </ul>
                 </div>
-                <div className="col-lg-3 col-md-6 mb-4 mb-md-0 mt-5">
+
+                <div className="col-lg-3 col-md-6  mb-md-0 mt-4 p-5">
                 
                 <h5 className="text-uppercase mb-4">Contact</h5>
                 <ul className="list-unstyled">
@@ -78,7 +85,7 @@ const Footer = () => {
                 <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
                 
                 <div className='mapdog'>
-                <DoggyMap />
+                {/* <DoggyMap /> */}
                 </div>
                 
                 </div>

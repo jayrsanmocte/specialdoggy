@@ -114,9 +114,9 @@ getInRef.current.scrollIntoView({ behavior: 'smooth' });
   </section>
 </div>
 
-<div className="container-fluid">
+
   <img src="/Images/school-divider.png" alt="" id="imagelogo" />
-</div>
+
 
 <div className="container">
   <div className="text-center">

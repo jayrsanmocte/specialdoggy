@@ -1,0 +1,92 @@
+{
+  "hash": "949568eb",
+  "browserHash": "cc87185e",
+  "optimized": {
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "f92e39a8",
+      "needsInterop": false
+    },
+    "firebase/compat/app": {
+      "src": "../../node_modules/firebase/compat/app/dist/esm/index.esm.js",
+      "file": "firebase_compat_app.js",
+      "fileHash": "fba12b77",
+      "needsInterop": false
+    },
+    "firebase/compat/auth": {
+      "src": "../../node_modules/firebase/compat/auth/dist/esm/index.esm.js",
+      "file": "firebase_compat_auth.js",
+      "fileHash": "82db5fb0",
+      "needsInterop": false
+    },
+    "firebase/compat/database": {
+      "src": "../../node_modules/firebase/compat/database/dist/esm/index.esm.js",
+      "file": "firebase_compat_database.js",
+      "fileHash": "145d05c1",
+      "needsInterop": false
+    },
+    "leaflet": {
+      "src": "../../node_modules/leaflet/dist/leaflet-src.js",
+      "file": "leaflet.js",
+      "fileHash": "769892c4",
+      "needsInterop": true
+    },
+    "leaflet-routing-machine": {
+      "src": "../../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.js",
+      "file": "leaflet-routing-machine.js",
+      "fileHash": "58adf561",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "dae641f9",
+      "needsInterop": true
+    },
+    "react-bootstrap": {
+      "src": "../../node_modules/react-bootstrap/esm/index.js",
+      "file": "react-bootstrap.js",
+      "fileHash": "0d0391ac",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "1c3d84d5",
+      "needsInterop": true
+    },
+    "react-firebase-hooks/auth": {
+      "src": "../../node_modules/react-firebase-hooks/auth/dist/index.esm.js",
+      "file": "react-firebase-hooks_auth.js",
+      "fileHash": "5360492b",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "fdf8c067",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-LCTRUZJ5": {
+      "file": "chunk-LCTRUZJ5.js"
+    },
+    "chunk-UMD3JK7D": {
+      "file": "chunk-UMD3JK7D.js"
+    },
+    "chunk-YW2QEB5D": {
+      "file": "chunk-YW2QEB5D.js"
+    },
+    "chunk-UTXK42JB": {
+      "file": "chunk-UTXK42JB.js"
+    },
+    "chunk-V4EFTLOS": {
+      "file": "chunk-V4EFTLOS.js"
+    },
+    "chunk-OZI5HTJH": {
+      "file": "chunk-OZI5HTJH.js"
+    }
+  }
+}

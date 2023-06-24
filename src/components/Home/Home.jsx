@@ -16,7 +16,7 @@ function Home() {
   return (
     <>
     
-    <div className="container mt-2">
+    <div className="container mt-2"id='home'>
   <section>
     <div className="row mt-5">
       <div className="first col-md-6">
@@ -24,9 +24,7 @@ function Home() {
           Digital Content For <span style={{ color: 'rgba(252,176,66,255)' }}>Dog Lover`s</span>
         </p>
         <p>
-          As a dog lover, there is a wealth of digital content available that can cater to your interests. One option is
-          to explore dog-related blogs and websites, where you can find informative articles on dog care, training tips,
-          breed profiles, health advice, and inspiring stories about dogs.
+        As a dog lover, there are various digital resources available to cater to your interests and facilitate the adoption process. Additionally, these platforms often provide valuable information and resources on adopting dogs, such as adoption guides, listings of rescue organizations or shelters, and tips for a successful adoption experience. These resources can help potential dog owners gather the necessary information and support to make an informed decision about adoption and provide a loving home to a deserving dog in need.
         </p>
         <div className="py-5">
           <button className="btn btn-warning" onClick={scrollToGetIn}>

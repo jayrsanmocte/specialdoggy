@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
-import { getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const googleProvider = new GoogleAuthProvider();
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -24,83 +24,63 @@ const RegisterForm = () => {
     setPassword(e.target.value);
   };
 
-  const signInWithGoogle = async () => {
-    try {
-    await signInWithPopup(firebase.auth(), googleProvider);
-    const user = firebase.auth().currentUser;
-    const userId = user.uid;
-    const email = user.email; // Retrieve the user's email
-    const username = user.displayName; // Retrieve the user's email
-    const userRef = firebase.database().ref(`users/${userId}`);
-    userRef.set({ 
-        username,
-        email // Save the user's email in the database
-    });
-
-    } catch (error) {
-    // Handle the error
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: error,
-            footer: '<a href="">Why do I have this issue?</a>'
-        })
-    }
-};
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(email,password)
-    await firebase.auth().createUserWithEmailAndPassword(email, password);
-    const userId = firebase.auth().currentUser.uid;
-    console.log(userId)
-    const userRef = firebase.database().ref(`users/${userId}`);
-    userRef.set({ 
+      console.log(email, password);
+      await firebase.auth().createUserWithEmailAndPassword(email, password);
+      const userId = firebase.auth().currentUser.uid;
+      console.log(userId);
+      const userRef = firebase.database().ref(`users/${userId}`);
+      userRef.set({
         name,
         email,
-    });
+      });
 
-} catch (error) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: error,
-            footer: '<a href="">Why do I have this issue?</a>'
-        })
+      // Display sweet alert
+      await Swal.fire({
+        icon: 'success',
+        title: 'Registration Complete',
+        text: 'You have successfully registered.',
+        showConfirmButton: false,
+        timer: 2000,
+      });
+
+      // Navigate to home page
+      navigate('/home'); // Use navigate function to navigate
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.message,
+        footer: '<a href="">Why do I have this issue?</a>'
+      });
     }
-};
-
-
-
-
+  };
 
   return (
+    <div className="container mt-5 p-5" style={{ width: '40%' }}>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formBasicName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} />
+        </Form.Group>
 
-    <div className="container mt-5 p-5" style={{width:'40%'}}>
-        <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formBasicName">
-        <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleNameChange}/>
-      </Form.Group>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label className='mt-4'>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
+        </Form.Group>
 
-      <Form.Group controlId="formBasicEmail">
-        <Form.Label  className='mt-4'>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange}/>
-      </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label className='mt-4'>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+        </Form.Group>
 
-      <Form.Group controlId="formBasicPassword">
-        <Form.Label  className='mt-4'>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
-      </Form.Group>
-
-      <Button  className='mt-4' variant="warning" type="submit">
-        Register
-      </Button>
-    </Form>
-    <button className='mt-4' onClick={signInWithGoogle}>Signup with Google</button>
-</div>
-    
+        <Button className='mt-4' variant="warning" type="submit">
+          Register
+        </Button>
+      </Form>
+    </div>
   );
 };
 

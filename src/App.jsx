@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import LoginForm from './components/Login&Register/LoginForm';
 import RegisterForm from './components/Login&Register/RegisterForm';
 import Adopt from './components/Adopt/Adopt';
+import DoggyMap from './components/DoggyMAp/DoggyMap';
 import ApplicantsInfo from './components/Adopt/ApplicantsInfo';
 import Dogdata from './components/Dogdata/Dogdata';
 import SearchDog from './components/Dogdata/SearchDog';
@@ -35,6 +36,7 @@ firebase.initializeApp(firebaseConfig);
             <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/applicants" element={<Adopt />} />
+            <Route path="/shelterMap" element={<DoggyMap />} />
             <Route path="/appinfo" element={<ApplicantsInfo selectedDogName={selectedDogName} />} />
             <Route path="/appinfo/:id" element={<ApplicantsInfo />} />
             <Route path="/searchDog" element={<SearchDog />} />

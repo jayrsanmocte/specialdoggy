@@ -153,7 +153,7 @@ import { useLocation } from 'react-router-dom';
       <>
       <div className="container">
 <div className="row">
-            <div className="col-6">
+            <div className="col-lg-6 col-md-6 col-12">
                   <div className="container-fluid mt-5 warrior">
           <h2 className='appss mt-5'>APPLICANT'S INFO</h2>
         <form onSubmit={ambobomo}>
@@ -478,7 +478,7 @@ import { useLocation } from 'react-router-dom';
             </div>
       </div>
           {/* splide */}
-              <div className="col-6 lady">
+              <div className="col-lg-6 col-md-6 col-12 lady">
                   <div className="container">
                     <div className="splide my-5" id="main-slider">
                       <div className="splide__track">

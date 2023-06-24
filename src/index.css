@@ -170,6 +170,10 @@ text-transform: uppercase;
 cursor:pointer;
 }
 
+
+
+
+
 /* ________________________________________________________________Adopt */
 
 .h {
@@ -203,7 +207,6 @@ font-size: 3rem;
 
 .row {
 padding-bottom: 50px;
-
 }
 
 .card {
@@ -251,11 +254,15 @@ margin-bottom: 5%;
   width: 100%;
   height: 100%;
   border-radius: 10%;
+  object-fit: cover;
 }
+
+
 
 .imgBox {
   width: 100%;
   height: 100%;
+  
 }
 
 /* ________________________________________________________About */
@@ -380,8 +387,6 @@ display: absolute ;
 background-color: #ffffff;
 background-repeat: no-repeat;
 background-size: cover;
-/* width: 100vw;
-height: 100vh; */
 }
 
 
@@ -396,26 +401,25 @@ width: 100%;
 height: 600px;
 }
 
-/* .amen {
-height: 100%;
-} */
-
 .thumbnail-galleryDogdata {
 display: flex;
 justify-content: center;
 margin-top: 20px;
+
 }
 
 .thumbnail {
-width: 100px; /* Adjust the thumbnail size as desired */
+width: 100px; 
 height: 100px;
 object-fit: cover;
 margin: 0 5px;
 cursor: pointer;
+
 }
 
 .thumbnail.active {
-border: 1px solid rgba(252,176,66,255); /* Add a border to indicate the active thumbnail */
+border: 1px solid rgba(252,176,66,255);
+
 }
 
 .spanName1 {
@@ -428,9 +432,38 @@ color: rgba(252,176,66,255);
 
 /* _______________________________________________________________________SearchDog */
 
-.small-icon {
-  font-size: 12px;
+@media (max-width: 576px) {
+  .grid-item {
+    width: 100%; /* Make items take full width */
+    margin-bottom: 10px; /* Add some spacing between items */
+  }
 }
+
+/* Responsive styles for medium screens */
+@media (min-width: 577px) and (max-width: 768px) {
+  .grid-item {
+    width: 50%; /* Make items take 50% width for two items per row */
+    margin-bottom: 10px; /* Add some spacing between items */
+  }
+}
+
+/* Responsive styles for large screens */
+@media (min-width: 769px) and (max-width: 992px) {
+  .grid-item {
+    width: 20%; /* Make items take 33.33% width for three items per row */
+    margin-bottom: 10px; /* Add some spacing between items */
+  }
+}
+
+/* Responsive styles for extra-large screens */
+@media (min-width: 993px) {
+  .grid-item {
+    width: 20%; /* Make items take 25% width for four items per row */
+    margin-bottom: 10px; /* Add some spacing between items */
+  }
+}
+
+
 
 /* _________________________________________________________________Application Form */
 .warrior {
@@ -446,7 +479,8 @@ height: 100%;
 width: 30%;
 }
 
-.grid-container {
+.grid-
+{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -471,11 +505,14 @@ width: 30%;
 
 /* ______________________________________________________________________Map */
 
-#map { height: 180px; }
+/* #map { 
+
+  height: 50rem; 
+  width: 50rem;
+} */
 @import "~leaflet/dist/leaflet.css";
 .mapdog {
   z-index: 10;
-  
 }
 
 #map {
@@ -483,31 +520,147 @@ width: 30%;
 }
 
 .specialDog1 {
+  width: 100%;
+  height: 100%;
+}
 
-  width: 70%;
-  height: 50%;
-  margin-left: 40px;
+.imgBoxFooter1 {
+  width: 60%;
+  height: 60%;
+}
+
+.imgBoxFooter {
+  display: flex;
+  justify-content: center;
+  /* width: 50%;
+  height: 50%; */
 }
 
 .navibut {
-background-color: #FDEA7D;
-
-
+align-items: center;
 }
 
 .fa-car-rear {
   width: 100%;
 }
 .tag {
-  padding-left: 55px;
+ justify-content: center;
+ display: flex;
 }
+
 .locatee {
-  padding-left: 10px;
-  margin-left: 50px;
+ justify-content: center;
+ display: flex;
 }
+
+.default {
+  width: 100%;
+}
+
+.default1 {
+  width: 100%;
+}
+
 /* ______________________Dogs map */
 
+.btn-warning {
+  /* Custom styles for the "btn-warning" class */
+  background-color: #ffc107;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  /* font-weight: bold; */
+  text-transform: uppercase;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  animation: btn-pulse 1s infinite alternate;
+  /* Add any other desired styles */
+}
+
+.btn-warning:hover {
+  /* Custom styles for the "btn-warning" class on hover */
+  background-color: #ff9800;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Add any other desired styles */
+}
+
+.btn-warning:active {
+  /* Custom styles for the "btn-warning" class on active state */
+  background-color: #ff8800;
+  transform: scale(0.95);
+  /* Add any other desired styles */
+}
+
+.btn-warning:focus {
+  /* Custom styles for the "btn-warning" class on focus */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.5);
+  /* Add any other desired styles */
+}
+
+@keyframes btn-pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.btn-outline-warning {
+  /* Custom styles for the "btn-warning" class */
+  background-color: #fff;
+  color: #ffc107;
+  border: 1px solid #ffc107;
+  padding: 10px 20px;
+  border-radius: 5px;
+  /* font-weight: bold; */
+  text-transform: uppercase;
+  box-shadow: 0 5px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  animation: btn-pulse 1s infinite alternate;
+  /* Add any other desired styles */
+}
+
+.btn-outline-warning:hover {
+  /* Custom styles for the "btn-warning" class on hover */
+  background-color: #ff9800;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Add any other desired styles */
+}
+
+.btn-outline-warning:active {
+  /* Custom styles for the "btn-warning" class on active state */
+  background-color: #ff8800;
+  transform: scale(0.95);
+  /* Add any other desired styles */
+}
+
+.btn-outline-warning:focus {
+  /* Custom styles for the "btn-warning" class on focus */
+  /* outline: none; */
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.5);
+  /* Add any other desired styles */
+}
+
+@keyframes btn-pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 
 
+
+@media (max-width: 768px) {
+  #map {
+    height: 300px;
+  }
+}
 
   
