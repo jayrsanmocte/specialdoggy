@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ const LoginForm = ({ onRegisterClick }) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -57,42 +57,46 @@ const LoginForm = ({ onRegisterClick }) => {
   };
 
   return (
-    <div className="container mt-5 p-5" style={{ width: '40%' }}>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-        </Form.Group>
+    <div className="container mt-5 p-5">
+      <div className="row justify-content-center">
+        <Col lg={6} md={8} sm={10}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label className="mt-4">Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label className="mt-4">Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+              />
+            </Form.Group>
 
-        <div className="mt-4">
-          <Button className="me-4" variant="warning" type="submit">
-            Login
-          </Button>
+            <div className="mt-4">
+              <Button className="me-4" variant="warning" type="submit">
+                Login
+              </Button>
 
-          <Form.Text className="text-muted mt-5">
-            Don't have an account yet?{' '}
-            <Link className="text-primary" style={{ cursor: 'pointer' }} to="/register">
-              Register here
-            </Link>
-            .
-          </Form.Text>
-        </div>
-      </Form>
+              <Form.Text className="text-muted mt-5">
+                Don't have an account yet?{' '}
+                <Link className="text-primary" style={{ cursor: 'pointer' }} to="/register">
+                  Register here
+                </Link>
+                .
+              </Form.Text>
+            </div>
+          </Form>
+        </Col>
+      </div>
     </div>
   );
 };

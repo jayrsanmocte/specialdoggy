@@ -126,7 +126,7 @@
 <div id='adopt' className="container">
   <section>
     <div className="row">
-      <h3 className='available d-flex justify-content-center my-5'><span style={{ color: 'rgba(252,176,66,255)' }}>Available &nbsp;</span> Dogs</h3>
+      
       <div className="col-12">
         <div className="row">
           {[...Array(4)].map((_, index1) => {

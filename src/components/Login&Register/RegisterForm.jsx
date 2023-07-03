@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
-
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -49,7 +48,7 @@ const RegisterForm = () => {
         showConfirmButton: false,
         timer: 2000,
       });
-        
+
       // Navigate to home page
       navigate('/home'); // Use navigate function to navigate
     } catch (error) {
@@ -57,7 +56,7 @@ const RegisterForm = () => {
         icon: '',
         title: 'Invalid Email / Password',
         customClass: {
-        title: 'text-yellow',
+          title: 'text-yellow',
         },
         imageUrl: '/Images/sad.png',
         imageWidth: 200,
@@ -70,33 +69,53 @@ const RegisterForm = () => {
       });
     }
   };
-  
-
-
-
 
   return (
-    <div className="container mt-5 p-5" style={{ width: '40%' }}>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Enter your name" value={name} onChange={handleNameChange} required />
-        </Form.Group>
+    <div className="container mt-5 p-5">
+      <div className="row justify-content-center">
+        <Col lg={6} md={8} sm={10}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId="formBasicName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your name"
+                value={name}
+                onChange={handleNameChange}
+                required
+              />
+            </Form.Group>
 
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label className='mt-4'>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} required/>
-        </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label className="mt-4">Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label className='mt-4'>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} required/>
-        </Form.Group>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label className="mt-4">Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+            </Form.Group>
 
-        <Button className='mt-4' variant="warning" type="submit">
-          Register
-        </Button>
-      </Form>
+            <div className="mt-4">
+              <Button variant="warning" type="submit">
+                Register
+              </Button>
+            </div>
+          </Form>
+        </Col>
+      </div>
     </div>
   );
 };

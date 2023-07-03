@@ -337,43 +337,54 @@ function Dogdata() {
         </div>
         
       )}
- <div className="container">
+<div className="container">
   <div className="row justify-content-center">
     <div className="col-12 text-center">
       <h2 className="touchh2 my-5">
-        Dog available for <span style={{ color: 'rgba(252,176,66,255)' }}>adoption with rehoming fees</span>
+        Dog available for{' '}
+        <span style={{ color: 'rgba(252, 176, 66, 1)' }}>
+          adoption with rehoming fees
+        </span>
       </h2>
     </div>
   </div>
-  {randomBreeds.slice(0, 6).map((breed, index) => (
-  breedImages.length > index + 13 && (
-    <div className="row justify-content-center" key={index}>
-      <div className="col-4 mb-2 text-center">
+  <div className="row justify-content-center">
+  {randomBreeds.slice(0, 3).map((breed, index) =>
+    breedImages.length > index + 13 ? (
+      <div
+        className={`col-lg-4 col-md-6 col-sm-12 mb-2 text-center ${index >= 3 ? 'mb-4' : ''}`}
+        key={index}
+      >
         <img
           src={breedImages[index + 13]}
           alt={breed.name}
-          style={{ width: '100%', height: '50%', objectFit: 'cover' }}
+          style={{ width: '100%', height: '300px', objectFit: 'cover' }}
         />
         <h3>{breed.name}</h3>
         <p>{breed.description}</p>
-        <Link
-          to={`/appinfo/${breed.name}`}
-          className="btn btn-warning"
-          onClick={() => setSelectedDogName(breed.name)}
-        >
-          Rehome Me
-        </Link>
+        <div className="mt-auto">
+          <Link
+            to={`/apprehome/${breed.name}`}
+            className="btn btn-warning"
+            style={{ width: '90%' }}
+            onClick={() => setSelectedDogName(breed.name)}
+          >
+            Rehome Me
+          </Link>
+        </div>
       </div>
-    </div>
-  )
-))}
-
-
+    ) : null
+  )}
+  {breedImages.length <= 13 && (
+  <div className="text-center">
+    <h2> -:- No Dogs <span style={{ color: 'rgba(252, 176, 66, 1)' }}>Available -:-</span></h2>
+  </div>
+  )}
 </div>
-                   
+</div>
+    
     
     </div>
-    
   );
 }
 

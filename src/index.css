@@ -64,6 +64,50 @@
   height: 90%;
 }
 
+@media (max-width: 767px) {
+  #dogsPicture {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .dogsPictureBox {
+    width: 100%;
+    height: 100%;
+  }
+
+  .digital, .Interesting {
+    text-align: center;
+  }
+
+  .homeBtnGet {
+    width: 90%;
+   margin-left: 5%;
+   margin-bottom: 1rem;
+  }
+
+  .homeBtnRead {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  color: #f0b41c;
+ background-color: #f0b41c63;
+ border-radius: 20%;
+ box-shadow: #f0b41c;
+ 
+}
+
+.carousel-control-next-icon {
+  margin-left: 50%;
+}
+
+.carousel-control-prev-icon {
+  margin-right: 50%;
+}
+
 /* ___________________________________________________________InterestingIcon */
 .Interesting {
   font-size: 3.5rem;
@@ -75,6 +119,8 @@
 .interestingIcons {
  width: 100%;
  height: 100%;
+ transition: all 0.3s ease;
+ animation: btn-pulse 1s infinite alternate;
 
 }
 
@@ -170,8 +216,35 @@ text-transform: uppercase;
 cursor:pointer;
 }
 
+.custom-input {
+  height: 40%;
+  width: 100%;
+  font-size: 1rem;
+}
 
+@media (max-width: 575.98px) {
+  .bg-custom {
+    margin: 0 !important;
+    padding: 0 !important;
+   text-align: center;
+  }
 
+  .btnfoot {
+    width: 100%;
+  }
+
+  .btnfoot1 {
+    width: 90%;
+  }
+}
+
+.nn {
+  width: 1.5rem;
+}
+
+.nn:hover {
+  transform: scale(2);
+}
 
 
 /* ________________________________________________________________Adopt */
@@ -538,6 +611,7 @@ width: 30%;
 
 .navibut {
 align-items: center;
+width: 90%;
 }
 
 .fa-car-rear {
@@ -679,3 +753,123 @@ align-items: center;
 .text-red {
   color: red;
 }
+
+.notFound {
+ margin-top: 10%;
+}
+
+.haha {
+  font-size: 9rem;
+  font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.poker-game {
+  text-align: center;
+  padding: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.start-button,
+.reset-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.player-hand {
+  margin: 20px 0;
+}
+
+.hand {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.card {
+  display: inline-block;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+
+.winner {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* ______________________________________________________________ChessGame */
+
+.chessboard {
+  display: inline-block;
+  margin: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.square {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #000;
+  cursor: pointer;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.dark {
+  background-color: #b58863;
+}
+
+.selected {
+  outline: 2px solid #ff0000;
+}
+
+.piece {
+  font-size: 48px;
+}
+
+.white {
+  color: #fff;
+}
+
+
+
+
+

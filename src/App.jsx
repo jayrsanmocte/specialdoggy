@@ -7,12 +7,14 @@ import RegisterForm from './components/Login&Register/RegisterForm';
 import Adopt from './components/Adopt/Adopt';
 import DoggyMap from './components/DoggyMAp/DoggyMap';
 import ApplicantsInfo from './components/Adopt/ApplicantsInfo';
+import Applicantsrehome from './components/Adopt/Applicantsrehome';
 import Dogdata from './components/Dogdata/Dogdata';
 import SearchDog from './components/Dogdata/SearchDog';
 import About from './components/About/About';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
+import NotFound from './NotFound';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLdmkJg3ZES8fqQ7bt7vT7B3LtyKivUEk",
@@ -38,13 +40,16 @@ firebase.initializeApp(firebaseConfig);
             <Route path="/applicants" element={<Adopt />} />
             <Route path="/shelterMap" element={<DoggyMap />} />
             <Route path="/appinfo" element={<ApplicantsInfo selectedDogName={selectedDogName} />} />
+            <Route path="/apprehome" element={<Applicantsrehome selectedDogName={selectedDogName} />} />
             <Route path="/appinfo/:id" element={<ApplicantsInfo />} />
+            <Route path="/apprehome/:id" element={<Applicantsrehome />} />
             <Route path="/searchDog" element={<SearchDog />} />
             <Route path="/dogdata" element={<Dogdata />} />
             {/* <Route path="/contacts" element={<Footer />} /> */}
             <Route path="/login" element={<LoginForm />} />
             <Route path="/register" element={<RegisterForm />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </>
     );

@@ -54,6 +54,7 @@ function Navbar() {
         title: 'text-red',
       }
       });
+      navigate('/login');
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -67,10 +68,10 @@ function Navbar() {
   const handleHomeClick = (e) => {
     const clickedLink = e.target.getAttribute('href');
   
-    if (!user && clickedLink !== '/searchDog' && clickedLink !== '/applicants') {
+    if (!user && clickedLink && isRestrictedPath !== '/searchDog' && clickedLink !== '/applicants') {
       e.preventDefault();
       navigate('/login');
-    } else if (!user && clickedLink !== '/about') {
+    } else if (!user && clickedLink && isRestrictedPath !== '/about') {
       navigate('/about');
     }
   };
